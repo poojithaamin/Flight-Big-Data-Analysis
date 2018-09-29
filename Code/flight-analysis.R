@@ -2,7 +2,7 @@ library("sparklyr")
 library("yarrr")
 library("dplyr")
 sc <- spark_connect(master = "local")
-df <- spark_read_csv(sc, name = "airdata_2015", path = "/media/vikas/Study/SanJose/CMPE 297/dataset/airline-data.2005-2015/airline-data/On_Time_On_Time_Performance_2005_1.csv", header = TRUE, delimiter = "," )
+df <- spark_read_csv(sc, name = "airdata_2015", path = "/dataset/airline-data.2005-2015/airline-data/On_Time_On_Time_Performance_2005_1.csv", header = TRUE, delimiter = "," )
 df %>% group_by(Carrier) %>% summarise(DepDelay = mean(DepDelay), ArrDelay = mean(ArrDelay))
 pirateplot(formula = ArrDelay ~ Carrier,
             data = df,
