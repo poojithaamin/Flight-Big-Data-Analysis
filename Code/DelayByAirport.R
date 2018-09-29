@@ -3,10 +3,10 @@ library(dplyr)
 library(maps)
 library(ggplot2)
 library(data.table)
-flights <- fread("/Users/sneha/downloads/airline_data.csv", sep=",",
+flights <- fread("airline_data.csv", sep=",",
                  header=TRUE,
                  stringsAsFactors=FALSE)
-airport_codes <- fread("/Users/sneha/downloads/airport_codes.csv", col.names=c("Origin", "OriginState"),
+airport_codes <- fread("airport_codes.csv", col.names=c("Origin", "OriginState"),
                        stringsAsFactors = FALSE) 
 flights <- left_join(flights, airport_codes, by="Origin")
 # Create subset of data containing origin state and arrival delay
